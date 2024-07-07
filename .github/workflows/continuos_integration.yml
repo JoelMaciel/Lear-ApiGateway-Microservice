@@ -41,10 +41,10 @@ jobs:
       working-directory: .
       run: mvn clean package
 
-    - name: Docker Compose Build
-      working-directory: .
-      run: docker-compose build
+    - name: Build Docker image
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/learn-api-gateway:latest .
 
+    - name: Tag Docker image for ECR
     - name: Build, tag, and push docker image to Amazon ECR
       run: |
         docker tag ${{ secrets.DOCKER_USERNAME }}/learn-api-gateway:latest ${{ secrets.IMAGE_REPO_URL }}:${{ github.run_id }}
