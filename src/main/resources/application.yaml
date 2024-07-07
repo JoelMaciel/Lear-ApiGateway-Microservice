@@ -28,7 +28,7 @@ learn:
 eureka:
   client:
     serviceUrl:
-      defaultZone: 'http://${learn.serviceRegistry.username}:${learn.serviceRegistry.password}@ec2-54-242-117-78.compute-1.amazonaws.com:8761/eureka'
+      defaultZone: 'http://serviceregistry:learn123sr@ec2-54-242-117-78.compute-1.amazonaws.com:8761/eureka'
   instance:
     hostname: localhost
 
